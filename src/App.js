@@ -39,11 +39,17 @@ const getReactRepositories = () =>
       }))
     );
 
+// props use
 function App({ text }) {
   const [data, setData] = useState([]);
   const [likes, setLikes] = useState(0);
 
+  {
+    /* hooks, useEffect, data fetching */
+  }
+
   useEffect(() => {
+    // setting state
     getReactRepositories().then((repositories) => setData(repositories));
   }, []);
 
@@ -51,21 +57,25 @@ function App({ text }) {
   return (
     <div className="App">
       <button
+        // styling
         style={{ width: "150px" }}
+        // using state, setting state
         onClick={() => setLikes(likes + (likes ? -1 : 1))}
       >
         {likes ? "Dislike" : "Like"}
       </button>
       {likes}
 
+      {/* mapping */}
       {data.map((repository) => (
         <li key={repository.name}>
           {repository.name} - 🌟 {repository.stars} - 🍴 {repository.forks}
         </li>
       ))}
 
+      {/* props use */}
       {text}
-
+      {/* passing props, using other components */}
       <RechartsExample options={options} />
     </div>
   );
