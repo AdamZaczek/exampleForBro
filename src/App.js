@@ -58,6 +58,12 @@ function App({ text }) {
       </button>
       {likes}
 
+      {data.map((repository) => (
+        <li key={repository.name}>
+          {repository.name} - 🌟 {repository.stars} - 🍴 {repository.forks}
+        </li>
+      ))}
+
       <RechartsExample options={options} />
     </div>
   );
