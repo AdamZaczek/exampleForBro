@@ -1,6 +1,7 @@
+// using other libraries
 import axios from "axios";
 import { useEffect, useState } from "react";
-
+// importing components
 import RechartsExample from "./RechartsExample";
 
 const options = {
