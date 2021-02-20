@@ -64,6 +64,8 @@ function App({ text }) {
         </li>
       ))}
 
+      {text}
+
       <RechartsExample options={options} />
     </div>
   );
