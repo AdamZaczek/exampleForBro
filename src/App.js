@@ -41,6 +41,7 @@ const getReactRepositories = () =>
 
 function App({ text }) {
   const [data, setData] = useState([]);
+  const [likes, setLikes] = useState(0);
 
   useEffect(() => {
     getReactRepositories().then((repositories) => setData(repositories));
@@ -49,7 +50,14 @@ function App({ text }) {
   console.log("data", data);
   return (
     <div className="App">
-      {text}
+      <button
+        style={{ width: "150px" }}
+        onClick={() => setLikes(likes + (likes ? -1 : 1))}
+      >
+        {likes ? "Dislike" : "Like"}
+      </button>
+      {likes}
+
       <RechartsExample options={options} />
     </div>
   );
